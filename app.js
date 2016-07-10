@@ -34,6 +34,9 @@ app.get('/users', user.list);
 app.get('/confirmation', home.getConfirmation);
 app.get('/getCustomerDetails', home.getCustomerDetails);
 
+
+app.get('/api/finpal/getFinalResults', home.getResults);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

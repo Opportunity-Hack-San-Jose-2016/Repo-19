@@ -100,6 +100,27 @@ function getCustomerDetails(req,res){
 	},userIdsQuery);
 }
 
+
+function getResults(req,res){
+	var getResultsQuery = "SELECT * FROM results ORDER BY score DESC";
+	mysql.fetchData(function(err,results){
+		if(err){
+			throw err;
+		}
+		else{
+			var rows = results;
+			console.log("DB Results :"+results);
+			var jsonString = JSON.stringify(results);
+			console.log("JSON : "+jsonString);
+			res.send(jsonString);
+		}	
+	},getResultsQuery);
+	
+	
+}
+
+
+exports.getResults=getResults;
 exports.getInstaFeed=getInstaFeed;
 exports.getHome=getHome;
 exports.login=login;
