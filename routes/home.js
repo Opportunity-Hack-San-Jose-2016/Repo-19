@@ -30,7 +30,7 @@ function getCustomerDetails(req,res){
 		
 		if(err){
 			throw err;
-		}
+		}  
 		else 
 		{
 			if(results.length > 0){
